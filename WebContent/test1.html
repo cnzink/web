@@ -15,21 +15,31 @@
 <script type="text/javascript">
 
 var ctx = document.getElementById("test").getContext("2d");
-ctx.fillStyle ='rgba(255,0,0,.3)';//填充颜色：红色，半透明
-ctx.strokeStyle ='hsl(120,50%,50%)';//线条颜色：绿色
-ctx.lineWidth = 1;//设置线宽
+ctx.fillStyle ="blue";
+ctx.strokeStyle ="black";
+ctx.lineWidth = 1;
 
+//画第一个圆
 ctx.beginPath();
-
-ctx.moveTo(100,100);
-//画圆
+ctx.moveTo(0,0);
 ctx.arc(100, 100, 10, 0, Math.PI*2, false);
+ctx.closePath();
+ctx.fill();
 
-//ctx.lineTo(100,200);
+//画第一条线
+ctx.beginPath();
+ctx.moveTo(110,100);
+ctx.lineTo(200,100);
+ctx.closePath();
+ctx.stroke();
 
-ctx.closePath();//可以把这句注释掉再运行比较下不同
-//ctx.stroke();//画线框
-ctx.fill();//填充颜色
+
+//画第二个圆
+ctx.beginPath();
+ctx.arc(210, 100, 10, 0, Math.PI*2, false);
+ctx.closePath();
+ctx.fill();
+
 
 </script>
 </html>

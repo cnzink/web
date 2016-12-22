@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="qunee-min.js"></script>
+<title>Insert title here</title>
+<script>
+
+function a(){
+	var a=10;
+	console.log(a);
+	draw();
+}
+function draw(){
+	var graph = new Q.Graph('canvas');
+	var i=5;
+	for (i;i>0;i--){
+	 	 var str="device"+i;
+	 	 var str = graph.createNode(str, -200+50*i, -150+30*i);
+}
+}
+</script>
+</head>
+<body>
+<a href="javascript:draw()">click</a>
+<div style="height: 500px;" id="canvas"/>
+</body>
+</html>

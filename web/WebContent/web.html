@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>websocket</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<link rel="stylesheet" type="text/css" href="" />
+<script src="qunee-min.js"></script>
+
+<script>
+
+  var  ws = new WebSocket("ws://localhost:8080/web/websocket");  
+  var message="hello";
+  ws.onopen = function (evt) { onOpen(evt) }; 
+
+  ws.onmessage = function (evt) { onMessage(evt) }; 
+  ws.onerror = function (evt) { onError(evt) };
+  
+  function onOpen(evt) { 
+		 console.log("Connected to WebSocket server."); 
+	 }
+  
+  function onMessage(evt) {  
+	  var num=evt.data;
+	  console.log('Retrieved data from server: ' + evt.data);
+	  document.getElementById('number').innerHTML = num;
+	  draw(num);
+	  }
+  function onError(evt) { 
+		 console.log('Error occured: ' + evt.data); 
+	 }
+  function send(evt) { 
+		 ws.send("hello"); 
+	 }
+  function draw(num){
+	  var graph = new Q.Graph('canvas');
+//	  var gw = graph.creatNode("GetWay");
+//	  var ap = graph.creatNode("Ap");
+	  var i=num;
+	  console.log(i);
+	  for (i;i>0;i--){
+	 	 var str="device"+i;
+	 	 var str = graph.createNode(str, -200+50*i, -150+30*i);
+	 	 var edge = graph.createEdge("Hello\nQunee", hello, qunee);
+  }
+}
+ <h1>the device number is <span id="number">*</span></h1>
+ <a href="javascript:send()">click</a>
+ <body>
+<div style="height: 500px;" id="canvas"/>
+ </body>
+ </html>

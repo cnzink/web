@@ -17,12 +17,12 @@ public class WebSocketTest{
 		num=gwDataProcessor.num();
 		
 		//send
-//		if(num!=null){
-//			session.getBasicRemote().sendText(num);
-//		}
-//		else{
+		if(num!=null){
+			session.getBasicRemote().sendText(num);
+		}
+		else{
 			session.getBasicRemote().sendText("0");
-//		}
+		}
 		}
 		
 	@OnOpen

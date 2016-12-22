@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 
 public class mysocket {
-	private String addr="192.168.1.104";
+	private String addr="192.168.1.100";
 	private int port=8890;
 	private static Socket sk;
 	private byte[] byt;
@@ -17,7 +17,6 @@ public class mysocket {
 	public void close() throws Exception{
 		sk.close();
 	}
-	
 	
 	public void setlist(){
 		byte[] pkt = new byte[2];

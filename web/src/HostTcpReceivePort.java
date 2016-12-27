@@ -24,12 +24,10 @@ public class HostTcpReceivePort implements Runnable {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.gwProcessor=gwProcessor;
-			
+		this.gwProcessor=gwProcessor;	
 	}
 
 	public void run() {
-		
 		try {
 			System.out.println("rec start");
 			while (!stop) {
@@ -51,7 +49,6 @@ public class HostTcpReceivePort implements Runnable {
 						System.arraycopy(incomingBytes, 0, newNpduBytes, npduBytes.length, inputSize);
 						npduBytes = newNpduBytes;
 					}
-
 					gwProcessor.addNpduBytes(npduBytes);
 					skt.close();
 				} catch (SocketTimeoutException ste) {

@@ -39,14 +39,14 @@
 	  var ap = graph.createNode("Ap",0,-300);
 	  ap.image="Q-server";
 	  var edge1 = graph.createEdge("",gw,ap);
-	  var i=0;
+	  var i=1;
 	  console.log(i);
-	  var str=new Array(3);
+	  var str=new Array(num+1);
 	  for (i;i<=num;i++){
 		  var str1="device"+i;
 		  console.log(str);
-		  str[i]=graph.createNode(str1,0,-200+100*i);
-	 	 if(i==0){
+		  str[i]=graph.createNode(str1,0,-300+100*i);
+	 	 if(i==1){
 	 		var edge = graph.createEdge("",ap,str[i]);
 	 	 }
 	 	 else{

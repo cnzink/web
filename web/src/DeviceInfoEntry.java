@@ -6,8 +6,9 @@ public class DeviceInfoEntry {
 	private final byte[] burstCmd;
 	private byte updateRateindex;
 	private byte cmdIndex;
-	private boolean subscribeStatus; // If the host is subscribed to this device or not
-	private boolean active = false;  // Device's connection status to the Gateway
+	private boolean subscribeStatus; // If the host is subscribed to this device
+										// or not
+	private boolean active = false; // Device's connection status to the Gateway
 
 	public DeviceInfoEntry(byte[] id) {
 		deviceId = new byte[6];
@@ -33,7 +34,7 @@ public class DeviceInfoEntry {
 		return burstCmd;
 	}
 
-	//Set the update rate for a subscribe on this device
+	// Set the update rate for a subscribe on this device
 	public void setUpdateRate(byte index) {
 		updateRateindex = index;
 	}
@@ -67,16 +68,17 @@ public class DeviceInfoEntry {
 	public byte getCmdIndex() {
 		return cmdIndex;
 	}
-        
+
 	// Set command index
 	public void setCmdIndex(byte i) {
 		cmdIndex = i;
 	}
 
-	//Equals
+	// Equals
 	public boolean equals(DeviceInfoEntry dev) {
 		for (int i = 0; i < 6; i++) {
-			if (this.deviceId[i] != dev.deviceId[i]) // replace with Arrays.equals()
+			if (this.deviceId[i] != dev.deviceId[i]) // replace with
+														// Arrays.equals()
 				return false;
 		}
 		return true;
@@ -88,24 +90,26 @@ public class DeviceInfoEntry {
 	}
 
 	// Start a subscribe to a device
-//	public void subscribe() {
-//            if (isActive()) {		
-//		setSubscribedStatus(true);
-//		HostQueryEntry bytearray = new HostQueryEntry((byte) 2, deviceId, updateRateindex, burstCmd);
-//		HostTcpSendPort.sendToGatewayFromHost(bytearray.getByteArray());
-//            }
-//	}
-        
-        // Modify an existing subscription
-//        public void modifySubscribe() {
-//            HostQueryEntry output = new HostQueryEntry((byte) 11, deviceId, updateRateindex, burstCmd);
-//            HostTcpSendPort.sendToGatewayFromHost(output.getByteArray());
-//        }
-        
+	// public void subscribe() {
+	// if (isActive()) {
+	// setSubscribedStatus(true);
+	// HostQueryEntry bytearray = new HostQueryEntry((byte) 2, deviceId,
+	// updateRateindex, burstCmd);
+	// HostTcpSendPort.sendToGatewayFromHost(bytearray.getByteArray());
+	// }
+	// }
+
+	// Modify an existing subscription
+	// public void modifySubscribe() {
+	// HostQueryEntry output = new HostQueryEntry((byte) 11, deviceId,
+	// updateRateindex, burstCmd);
+	// HostTcpSendPort.sendToGatewayFromHost(output.getByteArray());
+	// }
+
 	// Stop a subscribe from a device
-//	public void unsubscribe() {
-//		setSubscribedStatus(false);
-//		HostQueryEntry bytearray = new HostQueryEntry((byte) 3, deviceId);
-//		HostTcpSendPort.sendToGatewayFromHost(bytearray.getByteArray());
-//	}
+	// public void unsubscribe() {
+	// setSubscribedStatus(false);
+	// HostQueryEntry bytearray = new HostQueryEntry((byte) 3, deviceId);
+	// HostTcpSendPort.sendToGatewayFromHost(bytearray.getByteArray());
+	// }
 }

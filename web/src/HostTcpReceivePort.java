@@ -16,15 +16,14 @@ public class HostTcpReceivePort implements Runnable {
 	GwIncomingDataProcessor gwProcessor;
 
 	public HostTcpReceivePort(GwIncomingDataProcessor gwProcessor) {
-		
-		try{
+
+		try {
 			srvr = new ServerSocket(8891);
 			System.out.println("server open  success");
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.gwProcessor=gwProcessor;	
+		this.gwProcessor = gwProcessor;
 	}
 
 	public void run() {
@@ -32,7 +31,7 @@ public class HostTcpReceivePort implements Runnable {
 			System.out.println("rec start");
 			while (!stop) {
 				Thread.yield();
-				Thread.sleep(5); 
+				Thread.sleep(5);
 				try {
 					srvr.setSoTimeout(100);
 					Socket skt = srvr.accept();
@@ -55,12 +54,11 @@ public class HostTcpReceivePort implements Runnable {
 					// do nothing
 					// want to check stop condition
 				}
-				
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
-		finally {
+		} finally {
 			try {
 				srvr.close();
 			} catch (IOException e) {
@@ -71,8 +69,8 @@ public class HostTcpReceivePort implements Runnable {
 	}
 
 	/**
-         *
-         */
+	     *
+	     */
 	public void stop() {
 		this.stop = true;
 		System.out.println("rec stop");

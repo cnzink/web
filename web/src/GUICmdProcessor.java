@@ -304,9 +304,12 @@ public class GUICmdProcessor implements Runnable {
 		case 0xFA1C: // 64028 add edge
 			Cmd64028 cmd64028 = (Cmd64028) cmd;
 			NodeNickname srcnickName_64028 = new NodeNickname(cmd64028.getSrcNickName());
-			System.out.println(srcnickName_64028);
 			NodeNickname detnickName_64028 = new NodeNickname(cmd64028.getDstNickName());
-			System.out.println(detnickName_64028);
+			try {
+				web.send("3," + srcnickName_64028+","+detnickName_64028);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			// NetworkEdge edge_64028 = new NetworkEdge();
 			// edge_64028.setSignalStrength(cmd64028.getSignalStrength());
 			// NetworkNode src_64028 =

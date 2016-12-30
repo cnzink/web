@@ -36,3 +36,20 @@ function insert_nickname(str){
 		  }
 	  return have;
   }
+  
+  function insert_edge(str1,str2){
+	  if(have_edge(str1)){
+		  return;
+	  }
+	  else{
+		  edge[0].push(str1);
+		  edge[1].push(str2);
+	  }
+  }
+  function have_edge(str){
+	  for(var i=0;i<edge[0].length;i++){
+		  if(str==edge[i])
+			  return true;
+	  }
+	  return false;
+  }

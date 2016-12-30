@@ -1,17 +1,26 @@
 
 function draw(){
 	 var graph = new Q.Graph('canvas');
-	 var gw = graph.createNode("GetWay",0,-400);
-	 gw.image="Q-server";
-	 var ap = graph.createNode("Ap",0,-300);
-	 ap.image="Q-server";
-	 var edge1 = graph.createEdge("",gw,ap);
+
 	 
 	 for(var i=0;i<uid.length;i++){
-		 var str = uid[i];
-		 str = graph.createNode(nickname[i],0,-200+100*i);
+		 var str = graph.createNode(nickname[i],0,-200+100*i);
+		 node.push(str);
 	 }
-//	 var edge = graph.createEdge("",ap,str[i]);
-//	 var edge = graph.createEdge("",str[i-1],str[i]);
+	 
+	 console.log(edge);
+	 console.log(node)
+	 for(var i=0;i<edge[0].length;i++){
+		 var str = graph.createEdge(i.toString(),select(edge[0][i]),select(edge[1][i]));
+		 link.push(str);
+	 }
+}
 
+function select(str){
+	for(var i=0;i<node.length;i++){
+		if(node[i].name==str){
+			return node[i];
+			break;
+		}
+	}
 }

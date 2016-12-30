@@ -228,9 +228,17 @@ public class GUICmdProcessor implements Runnable {
 
 			Cmd64024 cmd64024 = (Cmd64024) cmd;
 			NodeNickname nickName_64024 = new NodeNickname(cmd64024.getNickName());
-			System.out.println(nickName_64024);
+			try {
+				web.send("1," + nickName_64024);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			NodeUniqueID uid_64024 = new NodeUniqueID(cmd64024.getUid());
-			System.out.println(uid_64024);
+			try {
+				web.send("2," + uid_64024);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			// NetworkNode toAdd_64024 = new NetworkNode(true, true, uid_64024,
 			// nickName_64024, (int) cmd64024.getID(), NodeType.ABSTRACT, new
 			// ScanPeriod(ScanPeriod._0_ms));

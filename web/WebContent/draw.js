@@ -1,10 +1,14 @@
 
 function draw(){
 	 var graph = new Q.Graph('canvas');
-
-	 
+	 graph.enbaleTooltip = false;
+	 graph.enableWheelZoom = false;
+	 	 
 	 for(var i=0;i<uid.length;i++){
-		 var str = graph.createNode(nickname[i],0,-200+100*i);
+//		 var str = graph.createNode(nickname[i],0,-200+100*i);
+//		 node.push(str);
+		 var str = graph.createNode(nickname[i]);
+		 str.size = {width:30};
 		 node.push(str);
 	 }
 	 
@@ -14,6 +18,12 @@ function draw(){
 		 var str = graph.createEdge(i.toString(),select(edge[0][i]),select(edge[1][i]));
 		 link.push(str);
 	 }
+	 
+//	 var layouter = new Q.SpringLayouter(graph);
+//	 layouter.repulsion = 100;
+//	 layouter.attractive = 0.2;
+//	 layouter.elastic = 1;
+//	 layouter.start();
 }
 
 function select(str){

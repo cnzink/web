@@ -239,18 +239,14 @@ public class GUICmdProcessor implements Runnable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			// NetworkNode toAdd_64024 = new NetworkNode(true, true, uid_64024,
-			// nickName_64024, (int) cmd64024.getID(), NodeType.ABSTRACT, new
-			// ScanPeriod(ScanPeriod._0_ms));
 
-			// if (cmd64024.getNodeType() == 1)
-			// toAdd_64024.setType(NodeType.AP);
-			// else
-			// if (cmd64024.getNodeType() == 2)
-			// toAdd_64024.setType(NodeType.DEVICE);
-			// else
-			// if (cmd64024.getNodeType() == 5)
-			// toAdd_64024.setType(NodeType.GATEWAY);
+//			 if (cmd64024.getNodeType() == 1);
+//			 else
+//			 if (cmd64024.getNodeType() == 2)
+//			 toAdd_64024.setType(NodeType.DEVICE);
+//			 else
+//			 if (cmd64024.getNodeType() == 5)
+//			 toAdd_64024.setType(NodeType.GATEWAY);
 			//
 			// if (cmd64024.isUpdate() == false)
 			// {

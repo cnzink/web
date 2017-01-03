@@ -16,10 +16,6 @@ function draw(){
 	var canMove = graph.createNode("Q-Node", -100, -50);
 	var cannotMove = graph.createNode("Node", 100, 50);
 	var edge = graph.createEdge("Hello\nQunee", canMove, cannotMove);
-	console.log(canMove.name.indexOf('Q'));
-	graph.isMovable = function(item){
-	 return item.name && item.name.indexOf('Q') === 0;
-	} 
 }
 </script>
 </head>

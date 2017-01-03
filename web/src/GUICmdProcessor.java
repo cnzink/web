@@ -228,25 +228,40 @@ public class GUICmdProcessor implements Runnable {
 
 			Cmd64024 cmd64024 = (Cmd64024) cmd;
 			NodeNickname nickName_64024 = new NodeNickname(cmd64024.getNickName());
-			try {
-				web.send("1," + nickName_64024);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			try {
+//				web.send("1," + nickName_64024);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 			NodeUniqueID uid_64024 = new NodeUniqueID(cmd64024.getUid());
-			try {
-				web.send("2," + uid_64024);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			try {
+//				web.send("2," + uid_64024);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 
-//			 if (cmd64024.getNodeType() == 1);
-//			 else
-//			 if (cmd64024.getNodeType() == 2)
-//			 toAdd_64024.setType(NodeType.DEVICE);
-//			 else
-//			 if (cmd64024.getNodeType() == 5)
-//			 toAdd_64024.setType(NodeType.GATEWAY);
+			 if (cmd64024.getNodeType() == 1){
+				 try {
+						web.send("1," + nickName_64024+","+uid_64024+","+"ap");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			 }
+			 if (cmd64024.getNodeType() == 2){
+				 try {
+						web.send("1," + nickName_64024+","+uid_64024+","+"device");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			 }
+			 else
+			 if (cmd64024.getNodeType() == 5){
+				 try {
+						web.send("1," + nickName_64024+","+uid_64024+","+"gateway");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			 }
 			//
 			// if (cmd64024.isUpdate() == false)
 			// {

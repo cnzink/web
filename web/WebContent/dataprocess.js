@@ -1,39 +1,19 @@
-function insert_nickname(str){
-	  if(have_nickname(str)){
+function insert_device(str1,str2,str3){
+	  if(have_nickname(str1)){
 		  return;
 	  }
 	  else{
-		  nickname.push(str);
+		  device[0].push(str1);
+		  device[1].push(str2);
+		  device[2].push(str3);
 	  }
   }
  function have_nickname(str){
 	  var have=false;
-	  var i=0;
-	  while(nickname.length!=undefined){
-		  for(i;i<nickname.length;i++){
-			  if(str==nickname[i]) have=true;
-			  }
-		  break;
-		  }
-	  return have;
-  }
-  
- 
- 
-  function insert_uid(str){
-	  if(have_uid(str)){
-		  return;
+	  for(var i=0;i<device[0].length;i++){
+		  if(str==device[0][i])
+			  have = true;
 	  }
-	  else{
-		  uid.push(str);
-	  }
-  }
-  function have_uid(str){
-	  var have=false;
-	  var i=0;
-	  for(i;i<nickname.length;i++){
-		  if(str==nickname[i]) have=true;
-		  }
 	  return have;
   }
   

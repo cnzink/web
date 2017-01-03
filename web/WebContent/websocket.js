@@ -1,7 +1,6 @@
 
 var  ws = new WebSocket("ws://localhost:8080/web/websocket");  
-var nickname = new Array();
-var uid = new Array();
+var device = new Array(new Array(),new Array(),new Array());
 var node = new Array();
 var link = new Array();
 var edge = new Array(new Array() , new Array() );
@@ -18,10 +17,7 @@ ws.onmessage = function onMessage(evt) {
 			document.getElementById('networkID').innerHTML=str[1];
 			break;
 	  	case 1:
-	  		insert_nickname(str[1]);
-	  		break;
-	  	case 2:
-	  		insert_uid(str[1]);
+	  		insert_device(str[1],str[2],str[3]);
 	  		break;
 	  	case 3:
 	  		insert_edge(str[1],str[2]);

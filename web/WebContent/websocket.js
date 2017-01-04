@@ -3,7 +3,7 @@ var  ws = new WebSocket("ws://localhost:8080/web/websocket");
 var device = new Array(new Array(),new Array(),new Array());
 var node = new Array();
 var link = new Array();
-var edge = new Array(new Array() , new Array() );
+var edge = new Array(new Array() , new Array() , new Array() );
 
 ws.onopen = function onOpen(evt) { 
 	 console.log("Connected to WebSocket server."); 
@@ -20,7 +20,7 @@ ws.onmessage = function onMessage(evt) {
 	  		insert_device(str[1],str[2],str[3]);
 	  		break;
 	  	case 3:
-	  		insert_edge(str[1],str[2]);
+	  		insert_edge(str[1],str[2],str[3]);
 	  		break;
 	  		}
 	  }

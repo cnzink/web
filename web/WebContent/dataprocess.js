@@ -17,13 +17,14 @@ function insert_device(str1,str2,str3){
 	  return have;
   }
   
-  function insert_edge(str1,str2){
+  function insert_edge(str1,str2,str3){
 	  if(have_edge(str1)){
 		  return;
 	  }
 	  else{
 		  edge[0].push(str1);
 		  edge[1].push(str2);
+		  edge[2].push(str3);
 	  }
   }
   function have_edge(str){

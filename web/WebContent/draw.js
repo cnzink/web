@@ -1,10 +1,10 @@
 
 function draw(){
 	 var graph = new Q.Graph('canvas');
-	 graph.enbaleTooltip = false;
+//	 graph.enbaleTooltip = false;
 	 graph.enableWheelZoom = false;
 //	 graph.moveToCenter();
-	 graph.interactionMode = null;
+	 graph.interactionMode = Q.Consts.INTERACTION_MODE_SELECTION;
 	 	 
 	 for(var i=0;i<device[0].length;i++){
 //		 var str = graph.createNode(nickname[i],0,-200+100*i);
@@ -20,7 +20,7 @@ function draw(){
 	 console.log(edge);
 	 console.log(node)
 	 for(var i=0;i<edge[0].length;i++){
-		 var str = graph.createEdge(i.toString(),select(edge[0][i]),select(edge[1][i]));
+		 var str = graph.createEdge(edge[2][i],select(edge[0][i]),select(edge[1][i]));
 		 link.push(str);
 	 }
 	 

@@ -15,17 +15,9 @@ import java.util.logging.Logger;
 import mesh.*;
 import mesh.cmd.*;
 
-/**
- * This class processes command sent from ManagerCore to ManagerGui
- * 
- * @author Hang Yu
- */
 public class GUICmdProcessor implements Runnable {
 
 	private ConcurrentLinkedQueue<byte[]> incomingBytes = new ConcurrentLinkedQueue<byte[]>();
-	private final static Logger LOGGER = Logger.getLogger(GUICmdProcessor.class.getName());
-	// repInfo is used to receive responsed information received from network
-	// manager
 	private Hashtable<Character, GuiCmdInfo> rspInfo = new Hashtable<Character, GuiCmdInfo>();
 
 	boolean isActive = true;
@@ -316,8 +308,9 @@ public class GUICmdProcessor implements Runnable {
 			Cmd64028 cmd64028 = (Cmd64028) cmd;
 			NodeNickname srcnickName_64028 = new NodeNickname(cmd64028.getSrcNickName());
 			NodeNickname detnickName_64028 = new NodeNickname(cmd64028.getDstNickName());
+			String str = Double.toString(cmd64028.getSignalStrength());
 			try {
-				web.send("3," + srcnickName_64028+","+detnickName_64028);
+				web.send("3," + srcnickName_64028+","+detnickName_64028+","+str);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -438,13 +431,13 @@ public class GUICmdProcessor implements Runnable {
 			break;
 
 		case 0xFA22:
-			Cmd64034 cmd64034 = (Cmd64034) cmd;
-			NodeUniqueID uid_64034 = new NodeUniqueID(cmd64034.getUid());
+//			Cmd64034 cmd64034 = (Cmd64034) cmd;
+//			NodeUniqueID uid_64034 = new NodeUniqueID(cmd64034.getUid());
 			// this.topology.RmItemFromDeviceBlackList(uid_64034);
 			break;
 
 		case 0xFA27:
-			Cmd64039 cmd64039 = (Cmd64039) cmd;
+//			Cmd64039 cmd64039 = (Cmd64039) cmd;
 			// NetworkNode node64039 =
 			// this.topology.GetNetworkNode(cmd64039.getNodeID());
 			// if(node64039!=null)
@@ -480,22 +473,22 @@ public class GUICmdProcessor implements Runnable {
 	}
 
 	// move to bottom
-	private void processCmd64046(Cmd64046 cmd) {
-		// See Cmd64046 for full description of progressFlag
-		int progressFlag = cmd.getProgressFlag();
-
-		if (progressFlag == 2) {
-			// ManagerCore has finished sending setup cmds.
-			// Respond with progressFlag 3 to indicate GUI is ready to receive
-			// incremental updates
-			Cmd64046 rspCmd = new Cmd64046(true);
-			rspCmd.setProgressFlag((byte) 3);
-
-			ArrayList<GuiCmdInfo> cmdList = new ArrayList<GuiCmdInfo>();
-			cmdList.add(rspCmd);
-			this.cmdSender.addMsg(CmdManipulation.GuiCmdListToByteArray(cmdList));
-		}
-	}
+//	private void processCmd64046(Cmd64046 cmd) {
+//		// See Cmd64046 for full description of progressFlag
+//		int progressFlag = cmd.getProgressFlag();
+//
+//		if (progressFlag == 2) {
+//			// ManagerCore has finished sending setup cmds.
+//			// Respond with progressFlag 3 to indicate GUI is ready to receive
+//			// incremental updates
+//			Cmd64046 rspCmd = new Cmd64046(true);
+//			rspCmd.setProgressFlag((byte) 3);
+//
+//			ArrayList<GuiCmdInfo> cmdList = new ArrayList<GuiCmdInfo>();
+//			cmdList.add(rspCmd);
+//			this.cmdSender.addMsg(CmdManipulation.GuiCmdListToByteArray(cmdList));
+//		}
+//	}
 
 	public int testNetworkLayer() throws InterruptedException {
 		Cmd64001 cmd64001 = new Cmd64001(true);
@@ -679,7 +672,6 @@ public class GUICmdProcessor implements Runnable {
 				wait(); // Maybe add a timeout mechanism, and display error
 						// saying save was incomplete
 			} catch (InterruptedException ex) {
-				LOGGER.log(Level.SEVERE, null, ex);
 			}
 		}
 

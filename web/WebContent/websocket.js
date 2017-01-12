@@ -1,6 +1,6 @@
 
 var  ws = new WebSocket("ws://localhost:8080/web/websocket");  
-var device = new Array(new Array(),new Array(),new Array());
+var device = new Array(new Array(),new Array(),new Array(),new Array());
 var node = new Array();
 var link = new Array();
 var edge = new Array(new Array() , new Array() , new Array() );

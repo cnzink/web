@@ -6,6 +6,8 @@ function insert_device(str1,str2,str3){
 		  device[0].push(str1);
 		  device[1].push(str2);
 		  device[2].push(str3);
+		  var i = Math.ceil(Math.random()*10);
+		  device[3].push(i);
 	  }
   }
  function have_nickname(str){
